@@ -66,3 +66,19 @@
   padding: 10px;
   color: white;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.list-item {
+  width: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background: #e2e2e2;
+}
