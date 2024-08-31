@@ -36,6 +36,7 @@ function App() {
 
   function handleTaskCreate(e) {
     e.preventDefault();
+    if (!taskTitle) return;
     const dataCopy = [...data];
     dataCopy.push({
       title: taskTitle,
@@ -55,12 +56,23 @@ function App() {
     setData(dataCopy);
   }
 
+  function handleAddNewTask(category) {
+    const dataCopy = [...data];
+    const selectedCategory = dataCopy.find((element) => element.title === category);
+    selectedCategory.tasks.push({ title: "Dummy task", isCompleted: false })
+    setData(dataCopy);
+  }
+
   return (<div>
+    <div className='create-task-form'>
     <input placeholder="Enter task here" onChange={handleInputCHange} />
     <button onClick={handleTaskCreate}>Save task</button>
-    {data.map((element, index) => {
-      return <TaskCard key={`${element.title}-${index}`} data={element} handleCompletion={handleCompletion} />
-    })}
+    </div>
+    <div className='tasks-listing-container'>
+      {data.map((element, index) => {
+        return <TaskCard key={`${element.title}-${index}`} data={element} handleAddNewTask={handleAddNewTask} handleCompletion={handleCompletion} />
+      })}
+    </div>
     </div>
   )
 }

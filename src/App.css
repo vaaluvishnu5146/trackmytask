@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: start;
 }
 
 .logo {
@@ -69,6 +69,8 @@
 
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .list-item {
@@ -87,4 +89,22 @@ input {
   height: 30px;
   border-radius: 5px;
   padding-inline-start: 10px;
+}
+
+.create-task-form {
+  margin-bottom: 20px;
+}
+
+.tasks-listing-container {
+  display: flex;
+  gap: 10px;
+}
+
+.task-card {
+  margin-bottom: 20px;
+  > .task-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
 }
