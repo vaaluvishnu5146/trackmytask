@@ -82,3 +82,9 @@ ul {
 .list-item:hover {
   background: #e2e2e2;
 }
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  padding-inline-start: 10px;
+}

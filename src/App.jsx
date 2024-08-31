@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import TaskCard from './components/TaskCard';
 
 // Function Component
 function App() {
@@ -58,14 +59,7 @@ function App() {
     <input placeholder="Enter task here" onChange={handleInputCHange} />
     <button onClick={handleTaskCreate}>Save task</button>
     {data.map((element, index) => {
-      return <div key={index}>
-      <h3>{element.title}</h3>
-      <ul>
-          {
-            element.tasks.map((item, index) => <li onClick={() => handleCompletion(element.title, item.title)} className="list-item" key={index} style={{ textDecoration: item.isCompleted ? 'line-through' : 'none' }}>{item.title}</li>)
-          }
-      </ul>
-      </div>
+      return <TaskCard key={`${element.title}-${index}`} data={element} handleCompletion={handleCompletion} />
     })}
     </div>
   )
