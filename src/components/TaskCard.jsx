@@ -1,15 +1,25 @@
 import PropTypes from 'prop-types';
+import ListItem from './ListItem';
+import { Button } from 'reactstrap';
 
 export default function TaskCard(props = {}) {
+  const { data, createTaskModalCB } = props;
   return (
     <div className='task-card'>
       <div className='task-card-header'>
-      <h3>{props.data.title}</h3>
-      <button onClick={() => props.handleAddNewTask(props.data.title)}>Add</button>
+        <h3>{data.title}</h3>
+        <div>
+        <Button
+          color="primary"
+          onClick={() => createTaskModalCB(data.title)}
+        >
+        Add
+        </Button>
+      </div>
       </div>
       <ul>
           {
-            props.data.tasks.map((item, index) => <li onClick={() => props.handleCompletion(props.data.title, item.title)} className="list-item" key={index}>{item.isCompleted && <span>️✅</span>}<span style={{ textDecoration: item.isCompleted ? 'line-through' : 'none' }}>{item.title}</span></li>)
+            data.tasks.map((item, index) => <ListItem key={`${item.title}-${index}`} task={item} {...props} />)
           }
       </ul>
       </div>
@@ -18,6 +28,6 @@ export default function TaskCard(props = {}) {
 
 TaskCard.propTypes = {
     data: PropTypes.object,
-    handleCompletion: PropTypes.func,
+    createTaskModalCB: PropTypes.func,
     handleAddNewTask: PropTypes.func,
 };

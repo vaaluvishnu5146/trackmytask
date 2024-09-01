@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "myfirstproject": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "reactstrap": "^9.2.2",
     "trackmytask": "file:"
   },
   "devDependencies": {

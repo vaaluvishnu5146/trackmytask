@@ -101,6 +101,10 @@ input {
 }
 
 .task-card {
+  min-width: 200px;
+  > ul {
+    padding: 0px;
+  }
   margin-bottom: 20px;
   > .task-card-header {
     display: flex;
